@@ -1,0 +1,80 @@
+﻿
+@model IEnumerable<Products.Models.Product>
+
+@{
+    ViewBag.Title = "SearchProduct";
+}
+
+<h4>Product List</h4>
+
+<p>
+    @Html.ActionLink("Add New Product", "AddProduct")
+</p>
+
+<br />
+@if (Model != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateCreated)
+                </td>
+                <td>
+                    @Html.ActionLink("UpdateProduct", "UpdateProduct", new { id = item.ProductID }) |
+                    @Html.ActionLink("DetailsProduct", "DetailsProduct", new { id = item.ProductID }) |
+                    @Html.ActionLink("DeleteProduct", "DeleteProduct", new { id = item.ProductID })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+}
+else
+{
+    <h3>No records where found</h3>
+}
+    <form class="form-inline" method="post" action="Search">
+
+        <input type="text" name="SearchText" class="form-control" placeholder="Product Name" />
+        <span>Search Category :</span>
+        <select name="ProductCategoryId" class="form-control">
+            <option value=0>Choose</option>
+            <option value=1>Grocery</option>
+            <option value=2>Vehicle</option>
+            <option value=3>Electronics</option>
+            <option value=4>Books</option>
+        </select>
+        <span>Price From:</span>
+        <input type="number" name="MinRange" class="form-control" />
+        <span> To </span>
+        <input type="number" name="MaxRange" class="form-control" />
+        <input type="submit" class="btn btn-primary" />
+    </form>

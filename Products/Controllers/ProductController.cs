@@ -31,22 +31,74 @@ namespace Products.Controllers
             dBOperations.AddProduct(product);
             return RedirectToAction("Index");
         }
-        public IActionResult Edit(int id)
+        public IActionResult UpdateProduct(int id)
         {
             Product product = dBOperations.GetProductID(id);
             return View(product);
         }
-        
-        public IActionResult Update()
+        [HttpPost]
+        public IActionResult UpdateProduct(Product product)
         {
-           // int row = dBOperations.UpdateProduct(product);
+            dBOperations.UpdateProduct(product);
             return RedirectToAction("Index");
 
         }
-        public IActionResult Details(int id)
+        public IActionResult DetailsProduct(int id)
         {
             Product product = dBOperations.GetProductID(id);
             return View(product);
+        }
+        public IActionResult DeleteProduct(int id)
+        {
+            // dBOperations.DeleteProductID(id);
+            if (id == null)
+            {
+                return NotFound();
+            }
+            Product product = dBOperations.GetProductID(id);
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return View(product);
+        }
+        [HttpPost, ActionName("DeleteProduct")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            dBOperations.DeleteProductID(id);
+            return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public IActionResult SearchProduct(SearchViewModel searchViewModel)
+        {
+            IEnumerable<Product> searchList = dBOperations.GetProduct();
+            if (searchViewModel.MaxRange == 0)
+            {
+                searchViewModel.MaxRange = 999999999;
+            }
+            if (searchViewModel.SearchText == null)
+            {
+                searchViewModel.SearchText = "";
+            }
+            if (searchViewModel.ProductCategoryId != 0)
+            {
+                searchList = (from s in searchList
+                              where s.ProductName.ToUpper().Contains(searchViewModel.SearchText.ToUpper())
+                               && (s.ProductPrice >= searchViewModel.MinRange && s.ProductPrice <= searchViewModel.MaxRange)
+                               && (s.ProductCategoryId.ToString().Contains(searchViewModel.ProductCategoryId.ToString()))
+                              select s).ToList();
+            }
+            else
+            {
+                searchList = (from s in searchList
+                              where s.ProductName.ToUpper().Contains(searchViewModel.SearchText.ToUpper())
+                               && (s.ProductPrice >= searchViewModel.MinRange && s.ProductPrice <= searchViewModel.MaxRange)
+                              select s).ToList();
+            }
+
+            return View(searchList);
         }
     }
 }

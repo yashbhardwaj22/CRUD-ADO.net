@@ -14,13 +14,19 @@ namespace DAL
         private SqlConnection conn;
         private SqlDataAdapter adp;
         private string connStr = @"Data Source=DESKTOP-BUVPTNA\;Initial Catalog=registration;Integrated Security=True";
-
+        /// <summary>
+        /// This method is used for add product
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns></returns>
         public int AddProduct(Product product)
         {
             using (conn = new SqlConnection(connStr))
             {
                 conn.Open();
-                cmd = new SqlCommand("insert into Product (ProductName,ProductPrice,ProductCategoryId,DateCreated)values(@ProductName,@ProductPrice,@ProductCategoryId,@DateCreated)", conn);
+                SqlCommand cmd = new SqlCommand("spAddProduct", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+               
                 cmd.Parameters.AddWithValue("@ProductName", product.ProductName);
                 cmd.Parameters.AddWithValue("@ProductPrice", product.ProductPrice);
                 cmd.Parameters.AddWithValue("@ProductCategoryId", product.ProductCategoryId);
@@ -32,6 +38,8 @@ namespace DAL
                 return result;
             }
         }
+
+      //To view all product details 
         public IEnumerable<Product> GetProduct()
         {
 
@@ -39,6 +47,7 @@ namespace DAL
             {
                 List<Product> allProduct = new List<Product>();
                 SqlCommand command = new SqlCommand("SELECT * FROM Product ", conn);
+              
                 conn.Open();
                 SqlDataReader rd = command.ExecuteReader();
                 while (rd.Read())
@@ -60,6 +69,11 @@ namespace DAL
                 return null;
             }  
         }
+        /// <summary>
+        /// This method is used to get particular product detail
+        /// </summary>
+        /// <param name="productID"></param>
+        /// <returns></returns>
         public Product GetProductID(int productID)
         {
             using (conn = new SqlConnection(connStr))
@@ -85,16 +99,36 @@ namespace DAL
                 return null;
             }
         }
-        public int UpdateProduct(Product product)
+        //To update products
+        public void UpdateProduct(Product product)
         {
             using (conn = new SqlConnection(connStr))
             {
                 product.DateCreated = DateTime.Now.ToString();
                 conn.Open();
-                string query = "UPDATE Product set " + product;
+                string query = "UPDATE Product SET " +
+                    "ProductName ='" + product.ProductName +
+                    "', ProductPrice = " + product.ProductPrice +
+                    ", ProductCategoryId =" + product.ProductCategoryId +
+                    ", DateCreated ='" + product.DateCreated
+                    + "' where ProductID =" + product.ProductID;
+
                 cmd = new SqlCommand(query, conn);
-                return 1;
+                SqlDataReader dr = cmd.ExecuteReader();
+
             }
+        }
+        //To delete products
+        public void DeleteProductID(int productID)
+        {
+            using (conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                string query = "DELETE FROM Product where ProductID = " + productID;
+                cmd = new SqlCommand(query, conn);
+                SqlDataReader dr = cmd.ExecuteReader();
+            }
+
         }
     }
 

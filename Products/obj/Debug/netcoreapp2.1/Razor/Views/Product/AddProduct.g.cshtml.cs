@@ -165,12 +165,12 @@ Write(Html.AntiForgeryToken());
             WriteLiteral("\r\n            <div class=\"col-md-10\">\r\n                ");
             EndContext();
             BeginContext(1435, 310, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "16b60ac429f5450bbc982bd616b1e709", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d74232c5826846818a3844cff153c85d", async() => {
                 BeginContext(1492, 22, true);
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(1514, 34, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "08b23d7c2d2642c7a9d32e5e1aa749b9", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e7b0eb57994b485eb2260749fb2c4d66", async() => {
                     BeginContext(1532, 7, true);
                     WriteLiteral("Grocery");
                     EndContext();
@@ -192,7 +192,7 @@ Write(Html.AntiForgeryToken());
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(1570, 35, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "23f5910bf18c45bdaccabc283dfd3fd5", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9c6cccf6738a4d7abae4fba11cd7abbd", async() => {
                     BeginContext(1588, 8, true);
                     WriteLiteral("Vehicles");
                     EndContext();
@@ -214,7 +214,7 @@ Write(Html.AntiForgeryToken());
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(1627, 37, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "679b1c4847c544e0a897561f997de7a8", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cccf64b2cbda439db352df2f004a1439", async() => {
                     BeginContext(1645, 10, true);
                     WriteLiteral("Electonics");
                     EndContext();
@@ -236,7 +236,7 @@ Write(Html.AntiForgeryToken());
                 WriteLiteral("\r\n                    ");
                 EndContext();
                 BeginContext(1686, 32, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "da0f82fda1584b76aa180b2b90577aea", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3c5564fe30fe4da8bc6b4c25409a3cb8", async() => {
                     BeginContext(1704, 5, true);
                     WriteLiteral("Books");
                     EndContext();

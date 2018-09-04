@@ -63,8 +63,6 @@ C:\Users\yashb\Desktop\Products\Products\obj\Debug\netcoreapp2.1\Razor\Views\Hom
 C:\Users\yashb\Desktop\Products\Products\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
 C:\Users\yashb\Desktop\Products\Products\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
 C:\Users\yashb\Desktop\Products\Products\obj\Debug\netcoreapp2.1\Razor\Views\Product\AddProduct.g.cshtml.cs
-C:\Users\yashb\Desktop\Products\Products\obj\Debug\netcoreapp2.1\Razor\Views\Product\Details.g.cshtml.cs
-C:\Users\yashb\Desktop\Products\Products\obj\Debug\netcoreapp2.1\Razor\Views\Product\Edit.g.cshtml.cs
 C:\Users\yashb\Desktop\Products\Products\obj\Debug\netcoreapp2.1\Razor\Views\Product\Index.g.cshtml.cs
 C:\Users\yashb\Desktop\Products\Products\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
 C:\Users\yashb\Desktop\Products\Products\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
@@ -78,3 +76,7 @@ C:\Users\yashb\Desktop\Products\Products\obj\Debug\netcoreapp2.1\Products.Views.
 C:\Users\yashb\Desktop\Products\Products\obj\Debug\netcoreapp2.1\Products.csproj.CopyComplete
 C:\Users\yashb\Desktop\Products\Products\obj\Debug\netcoreapp2.1\Products.dll
 C:\Users\yashb\Desktop\Products\Products\obj\Debug\netcoreapp2.1\Products.pdb
+C:\Users\yashb\Desktop\Products\Products\obj\Debug\netcoreapp2.1\Razor\Views\Product\DeleteProduct.g.cshtml.cs
+C:\Users\yashb\Desktop\Products\Products\obj\Debug\netcoreapp2.1\Razor\Views\Product\DetailsProduct.g.cshtml.cs
+C:\Users\yashb\Desktop\Products\Products\obj\Debug\netcoreapp2.1\Razor\Views\Product\SearchProduct.g.cshtml.cs
+C:\Users\yashb\Desktop\Products\Products\obj\Debug\netcoreapp2.1\Razor\Views\Product\UpdateProduct.g.cshtml.cs

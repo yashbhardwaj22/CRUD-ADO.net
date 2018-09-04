@@ -1,10 +1,10 @@
 ﻿@model Products.Models.Product
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "UpdateProduct";
 }
 
-<h2>Edit</h2>
+<h2>Update</h2>
 
 
 @using (Html.BeginForm())
@@ -12,9 +12,9 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Employee</h4>
+        <h4>Product</h4>
         <hr />
-        <input name="EmpId" value="@Model.ProductID" type="hidden" />
+        <input name="ProductID" value="@Model.ProductID" type="hidden" />
 
         <div class="form-group">
             @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -36,6 +36,7 @@
             @Html.LabelFor(model => model.ProductCategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <select asp-for="ProductCategoryId" class="form-control">
+                    <option value="0">Choose</option>
                     <option value="1">Groceries</option>
                     <option value="2">Vehicle</option>
                     <option value="3">Electronics</option>
@@ -47,7 +48,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <div class="btn btn-default" >
-                    @Html.ActionLink("Save", "Update")
+                    @Html.ActionLink("Save", "UpdateProduct")
                 </div>
                 
             </div>
