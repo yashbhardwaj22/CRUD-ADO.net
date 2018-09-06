@@ -8,7 +8,8 @@ using Products.Models;
 
 namespace DAL
 {
-    public class DBOperations : IDBOperations
+   
+    public sealed class DBOperations : IDBOperations
     {
         private SqlCommand cmd;
         private SqlConnection conn;
@@ -19,6 +20,31 @@ namespace DAL
         /// </summary>
         /// <param name="product"></param>
         /// <returns></returns>
+        private static DBOperations sobject=null;
+        static readonly object _object = new object();
+        
+        private DBOperations()
+        {
+
+        }
+
+        public static DBOperations getInstance()
+        {
+            if(sobject == null)
+            {
+                lock (_object)
+                {
+                    if (sobject == null)
+                    {
+                        sobject = new DBOperations();
+                    }
+                }
+
+            }
+            return sobject;
+
+        }
+
         public int AddProduct(Product product)
         {
             using (conn = new SqlConnection(connStr))

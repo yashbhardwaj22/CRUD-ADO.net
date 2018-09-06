@@ -14,7 +14,7 @@ namespace Products.Controllers
         private readonly DBOperations dBOperations;
         public ProductController()
         {
-            dBOperations = new DBOperations();
+            dBOperations =  DBOperations.getInstance();
         }
         public IActionResult Index()
         {
